@@ -1,0 +1,15 @@
+
+body{
+    background-color: #16151A;
+}
+#genre{
+    display: flex;
+}
+#genre p{
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+}
+#genre div{
+    margin: 0 11.5px 0 11.5px;
+}
