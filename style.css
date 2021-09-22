@@ -10,7 +10,11 @@ h1, h2, h3, h4, h5{
 	border: 0;
 	outline: 0;
 }
-
+h2{
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+}
 *{box-sizing: border-box;}
 
 body {
