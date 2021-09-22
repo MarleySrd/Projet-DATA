@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 body{
     background-color: #16151A;
@@ -13,3 +14,336 @@ body{
 #genre div{
     margin: 0 11.5px 0 11.5px;
 }
+=======
+@charset "UTF-8";
+
+body, html, figure {
+    margin:0; padding:0;
+}
+
+h1, h2, h3, h4, h5{
+    margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+}
+
+*{box-sizing: border-box;}
+
+body {
+    background-color: #16151A;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+main article {
+    border:1px dotted blue;
+}
+
+#wrapper{
+    max-width: 1440px;
+    margin:auto;
+}
+
+/*//////////////////////////////////          header */
+header{
+    display:flex;
+    font-family: 'Urbanist', sans-serif;
+    background-color: white;
+    color:#3BC8E7;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 64px;
+    align-items: center; 
+}
+
+#headerLeft{ display:flex; }
+#btBurger{
+    display: flex;
+    background-color: #3BC8E7;
+    width: 65px;
+    height: 64px;
+    position: relative;
+    flex-direction:column;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+#btBurger:hover{ background-color: #70d1e7; }
+
+#trait1, #trait2 {
+    position: relative;
+    border: 1px solid white;
+    width: 18px;
+    left:20px;
+    margin:2px;   
+}
+#trait3 {
+    position: relative;
+    border: 1px solid white;
+    width: 13px;
+    left:20px;
+    margin:2px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+}
+
+.trait4{
+    position: relative;
+    width: 0;
+    border: 1px solid white;
+    height: 6px;
+    margin:1px;
+}
+.trait5{
+    position: relative;
+    width: 0;
+    border: 1px solid white;
+    height: 14px;
+    margin:1px;
+}
+.trait6{
+    position: relative;
+    width: 0;
+    border: 1px solid white;
+    height: 26px;
+    margin:1px;
+}
+.trait7{
+    position: relative;
+    width: 0;
+    border: 1px solid white;
+    height: 8px;
+    margin:1px;
+}
+.trait8{
+    position: relative;
+    width: 0;
+    border: 1px solid white;
+    height: 14px;
+    margin:1px;
+}
+.trait9{
+    position: relative;
+    width: 0;
+    border: 1px solid white;
+    height: 18px;
+    margin:1px;
+}
+.trait10{
+    position: relative;
+    width: 0;
+    border: 1px solid white;
+    height: 4px;
+    margin:1px;
+}
+.tBlue{ border: 1px solid #3BC8E7 !important; }
+
+.brand{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+.title{ 
+    font-size: 14px;
+    font-weight: 900;
+}
+.subtitle{ font-size:12px; }
+
+#headerRight{
+    display: flex;
+    align-items: center;
+}
+
+#search{
+    width: 358px;
+    height: 38px;
+    border: 1px dotted papayawhip;
+    background-color: #F0F5F9;
+}
+
+#search::placeholder{
+    padding:4px; 
+    color:#70d1e7;
+}
+
+/* #search:focus{
+    border:1px solid #70d1e7;
+} */
+
+#btSearch{
+    position: relative;
+    margin-left: -34px;
+    background-color: #3BC8E7;
+    border: 0;
+    width: 29px;
+    height: 29px;
+    cursor: pointer;
+    padding: 9px;
+}
+
+#login{
+    display: flex;
+    font-weight: 900;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+}
+
+#avatar{ margin:15px; }
+#name{ margin:15px; }
+
+/*//////////////////////////////////          banner */
+#banner{
+    position: relative;
+    width: 100%;
+    max-height: 802px;
+}
+
+#bkg{ 
+    width: 100%;
+    height: 55vw;
+    max-height: 802px;
+}
+
+#bkg img{ 
+    object-fit: cover;
+    object-position:center;
+    width: 100%;
+    height: 55vw;
+    max-height: 802px;
+}
+
+#blockBanner{
+    width: 50%;
+    height: 75%;
+    padding: 64px;
+    position: absolute;
+    bottom: 0;
+}
+
+#titleBlockBanner{
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 900;
+    font-size: 5vw;
+}
+.blue{ color:#3BC8E7; }
+
+#txtBlockBanner{
+    font-size: 1vw;
+    line-height: 25px;
+    padding:25px 0px;
+    font-size: 1vw;
+}
+
+#btBlockBanner{
+    padding:25px 0px;
+    font-size: 1vw;
+}
+
+#btBlockBanner button{
+    background: none;
+    border:2px solid #3BC8E7;;
+    width:45%;
+    margin:0px 25px 0px 0px;
+    color:white;
+    padding:8px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+#btBlue{ background-color: #3BC8E7 !important; }
+
+#btBlockBanner button:hover{
+    background: white !important;
+    color:#3BC8E7;  
+}
+
+/*//////////////////////////////////          main */
+
+
+/*//////////////////////////////////          footer */
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:64px;
+    background: rgb(64,64,64);
+    background: -moz-linear-gradient(0deg, rgba(64,64,64,1) 0%, rgba(0,0,0,1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(64,64,64,1) 0%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(0deg, rgba(64,64,64,1) 0%, rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#404040",endColorstr="#000000",GradientType=1); 
+}
+
+#col1, #col2, #col3{
+    width: 33%; 
+    padding-right: 64px;
+    margin-right: 64px;
+}
+#col3{ margin-right: 0 !important; }
+
+.headerCol{
+    display:flex;
+    height: 64px;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 900;
+    align-items: center;
+}
+
+.txt{
+    font-family: 'Urbanist', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    
+}
+.txt a:link, .txt a:visited, .txt a:active{ 
+    color:#3BC8E7;
+    text-decoration: none;
+}
+.txt a:hover{ color:white; }
+
+#subscribe input[type=text]{
+    width: 100%;
+    height: 43px;
+    margin: 14px 0px;
+}
+
+#subscribe input[type=text]::placeholder{ 
+    color: #3BC8E7;
+    padding:20px;
+}
+
+#subscribe input[type=submit]{
+    width: 50%;
+    height: 43px;
+    margin: 10px 0px;
+    border:2px solid #3BC8E7;
+    background-color: #3BC8E7;
+    color:white;
+    padding:8px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 14px 0px;
+}
+
+.bt{
+    width: 40px;
+    height: 40px;
+    background-color: #3BC8E7;
+    border: none;
+    margin-right: 25px;  
+}
+
+.contact{
+    display: flex;
+    margin: 20px 0px;
+}
+>>>>>>> c51b3a276506362956e0124829cc75b824e54a3a
