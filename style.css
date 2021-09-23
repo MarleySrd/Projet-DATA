@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-
-body{
-    background-color: #16151A;
-}
-#genre{
-    display: flex;
-}
-#genre p{
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 14px;
-}
-#genre div{
-    margin: 0 11.5px 0 11.5px;
-}
-=======
 @charset "UTF-8";
 
 body, html, figure {
@@ -350,4 +333,3 @@ footer{
     display: flex;
     margin: 20px 0px;
 }
->>>>>>> c51b3a276506362956e0124829cc75b824e54a3a
