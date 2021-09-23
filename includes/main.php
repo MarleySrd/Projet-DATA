@@ -2,57 +2,7 @@
             <h2>Genre</h2>
             <div id="slider">
                 <div id="wrpSlider">
-
-                    <div class="albumSlide">
-                        <div class="thumbGenre"><img src="img/thumbAlbum.jpg" alt="album"></div>
-                        <div class="nameGenre">Genre name</div>
-                    </div>
-
-                    <div class="albumSlide">
-                        <div class="thumbGenre"><img src="img/thumbAlbum.jpg" alt="album"></div>
-                        <div class="nameGenre">Genre name</div>
-                    </div>
-
-                    <div class="albumSlide">
-                        <div class="thumbGenre"><img src="img/thumbAlbum.jpg" alt="album"></div>
-                        <div class="nameGenre">Genre name</div>
-                    </div>
-
-                    <div class="albumSlide">
-                        <div class="thumbGenre"><img src="img/thumbAlbum.jpg" alt="album"></div>
-                        <div class="nameGenre">Genre name</div>
-                    </div>
-
-                    <div class="albumSlide">
-                        <div class="thumbGenre"><img src="img/thumbAlbum.jpg" alt="album"></div>
-                        <div class="nameGenre">Genre name</div>
-                    </div>
-
-                    <div class="albumSlide">
-                        <div class="thumbGenre"><img src="img/thumbAlbum.jpg" alt="album"></div>
-                        <div class="nameGenre">Genre name</div>
-                    </div>
-
-                    <div class="albumSlide">
-                        <div class="thumbGenre"><img src="img/thumbAlbum.jpg" alt="album"></div>
-                        <div class="nameGenre">Genre name</div>
-                    </div>
-
-                    <div class="albumSlide">
-                        <div class="thumbGenre"><img src="img/thumbAlbum.jpg" alt="album"></div>
-                        <div class="nameGenre">Genre name</div>
-                    </div>
-
-                    <div class="albumSlide">
-                        <div class="thumbGenre"><img src="img/thumbAlbum.jpg" alt="album"></div>
-                        <div class="nameGenre">Genre name</div>
-                    </div>
-
-                    <div class="albumSlide">
-                        <div class="thumbGenre"><img src="img/thumbAlbum.jpg" alt="album"></div>
-                        <div class="nameGenre">Genre name</div>
-                    </div>
-
+                   
                 </div>
             </div>
         </article>
