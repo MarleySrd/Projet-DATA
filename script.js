@@ -1,4 +1,4 @@
-const dataApiAlbums = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums");
+const dataApiAlbums = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/albums");
 
 dataApiAlbums
   .then(async (responseData) => {
@@ -14,8 +14,13 @@ dataApiAlbums
         let titleTrack = response.data[i].artist.name;
         let artistName = response.data[i].title;
         let duration = 0;
+        if(position < 10){
+          
+        }
+
+
         let line = createLine(position, urlThumb, titleTrack, artistName, duration);
-        addLineToListTopAlbum(line);
+        addLineToListTopAlbums(line);
 
       }
     } catch (err) {
@@ -27,7 +32,7 @@ dataApiAlbums
     console.log(err)
   })
 
-  const dataApiTracks = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks");
+  const dataApiTracks = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/tracks");
 
   dataApiTracks
   .then(async (responseData) => {
@@ -56,11 +61,11 @@ dataApiAlbums
     console.log(err)
   })
 
-  function createLine(nbr, urlThumb, titleTrack, artistName, duration) {
+  function createLine(position, urlThumb, titleTrack, artistName, duration) {
 
     let list = '<div class="lineTop">';
     list += '<div class="leftLine">';
-    list += '    <div class="nbr">'+nbr+'</div>';
+    list += '    <div class="nbr">'+position+'</div>';
     list += '    <div class="thumbAlbumTopTracks"><img src="'+urlThumb+'" alt="thumb Album"></div>';
     list += '    < class="trackInfos">';
     list += '        <div class="TitleTrack">'+titleTrack+'</div>';
