@@ -254,8 +254,54 @@ header{
 }
 
 /*//////////////////////////////////          main */
+main{
+ 
 
+}
 
+#tops{
+    display: flex;
+    padding: 64px;
+    background: rgb(0,0,0);
+    background: -moz-linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(64,64,64,1) 50%, rgba(0,0,0,1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(64,64,64,1) 50%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(64,64,64,1) 50%, rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1); 
+}
+#topTracks, #topAlbums{ width: 50%; }
+
+.listTop{
+    margin: 64px 0px;
+}
+.listTop div{ padding:  0px 14px 0px 0px; }
+.lineTop{ 
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    margin:15px 0px;
+}
+.nbr{
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+}
+
+.leftLine{ 
+    display:flex;
+    align-items: center;
+    margin-left: 0 !important;
+ }
+ .trackInfos{
+     font-family: 'Urbanist', sans-serif;
+     font-weight: 700;
+     font-size: 14px;
+ }
+ .timer{ 
+     font-family: 'Urbanist', sans-serif;
+     font-weight: 300;
+     font-size: 14px;
+}
+/* { display:flex; } */
 /*//////////////////////////////////          footer */
 footer{
     display: flex;
