@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const dataApi = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/genre");
 
 dataApi
@@ -31,8 +30,3 @@ dataApi
   .catch((err) => {
     console.log(err)
   })
-=======
-window.addEventListener('load', (event) => {
-    console.log('js work !');
-});
->>>>>>> c51b3a276506362956e0124829cc75b824e54a3a
