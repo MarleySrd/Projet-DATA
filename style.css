@@ -255,9 +255,9 @@ header{
 
 /*//////////////////////////////////          main */
 /* genre */
-#genre{
-    /* padding: 64px; */
-}
+/* #genre{
+    padding: 64px;
+} */
 #genre h2{
     padding: 24px 64px;
 }
@@ -281,9 +281,9 @@ header{
 .albumSlide{
     margin: 0px 24px 0px 0px; 
 }
-.thumbGenre{
+/* .thumbGenre{
    
-}
+} */
 .nameGenre{
     font-family: 'Urbanist', sans-serif;
     font-weight: 700;
