@@ -25,11 +25,11 @@
                 </div>
             </div>
         </article>
-        <article id="discover">découverte</article>
+        <!-- <article id="discover">découverte</article> -->
         <!-- ... -->
 
         <article id="playlist">
-            <h2>Le top des playlist à venir découvrir ou redécouvrir</h2>
+            <h2><span class="blue">Le top</span> des playlist à venir découvrir ou redécouvrir</h2>
             <div class="slider">
                 <div class="wrpSlider" id="wrpPlaylist">
                    

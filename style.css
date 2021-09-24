@@ -277,29 +277,21 @@ header{
 }
 .wrpSlider::-webkit-scrollbar{ width: 0; }
 html { scroll-behavior: smooth; }
-.albumSlide{ margin: 0px 24px 0px 0px; }
-.thumbGenre{ cursor: pointer;}
-.thumbGenre img{
+.slide{ margin: 0px 24px 0px 0px; }
+.thumb{ cursor: pointer;}
+.thumb img{
     -webkit-user-select: none; /* Safari */        
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none; /* Standard */
 }
-.nameGenre{
+.name{
     font-family: 'Urbanist', sans-serif;
     font-weight: 700;
 }
 
-/* playlist */
 #playlist h2{
     padding: 24px 64px;
-}
-
-
-
-.namePlaylist{
-    font-family: 'Urbanist', sans-serif;
-    font-weight: 700;
 }
 
 /* listes tops */

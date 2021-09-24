@@ -84,16 +84,6 @@ function createLine(nbr, urlThumb, titleTrack, artistName, duration) {
   return list;
 }
 
-function addLineToListTopAlbums(line) {
-  let listAlbums = document.getElementById('listAlbums');
-
-  listAlbums.innerHTML += line;
-}
-function addLineToListTopTracks(line) {
-  let listTracks = document.getElementById('listTracks');
-
-  listTracks.innerHTML += line;
-}
 
 // Slider Genre
 const dataApiGenre = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/genre");
@@ -161,22 +151,34 @@ dataApiPlaylist
     console.log(err)
   })
 
-  function addSLideToListPlaylist(slide){
-    let listPlaylist =  document.getElementById('wrpPlaylist');
-    listPlaylist.innerHTML += slide;
-}
-
   function createSlide(urlthumb, nameGenre){
-    let slide = '<div class="albumSlide">';
-    slide += '<div class="thumbGenre"><img src="'+urlthumb+'" alt="album"></div>';
-    slide += '<div class="nameGenre">'+nameGenre+'</div>';
+    let slide = '<div class="slide">';
+    slide += '<div class="thumb"><img src="'+urlthumb+'" alt="album"></div>';
+    slide += '<div class="name">'+nameGenre+'</div>';
     slide += '</div>';
     return slide;
+}
+
+function addSLideToListPlaylist(slide){
+  let listPlaylist =  document.getElementById('wrpPlaylist');
+  listPlaylist.innerHTML += slide;
+}
+
+function addLineToListTopAlbums(line) {
+  let listAlbums = document.getElementById('listAlbums');
+
+  listAlbums.innerHTML += line;
+}
+function addLineToListTopTracks(line) {
+  let listTracks = document.getElementById('listTracks');
+
+  listTracks.innerHTML += line;
 }
 
 //// SLIDER JS
 const sliderGenre = document.querySelector('#wrpGenre');
 const sliderPlaylist = document.querySelector('#wrpPlaylist');
+
 slide(sliderGenre);
 slide(sliderPlaylist);
 
@@ -208,33 +210,4 @@ function slide(el){
       //console.log(walk);
     });
 }
-
-
-// slider.addEventListener('mousedown', (e) => {
-//   isDown = true;
-//   slider.style.cursor = "grabbing";
-//   slider.classList.add('active');
-//   startX = e.pageX - slider.offsetLeft;
-//   scrollLeft = slider.scrollLeft;
-// });
-
-// // slider.addEventListener('mouseleave', () => {
-// //   isDown = false;
-// //   slider.classList.remove('active');
-// // });
-
-// slider.addEventListener('mouseup', () => {
-//   isDown = false;
-//   slider.style.cursor = "grab";
-//   slider.classList.remove('active');
-// });
-// slider.addEventListener('mousemove', (e) => {
-//   if(!isDown) return;
-//   e.preventDefault();
-//   const x = e.pageX - slider.offsetLeft;
-//   const walk = (x - startX) * 1;
-//   slider.scrollLeft = scrollLeft - walk;
-//   //console.log(walk);
-// });
-
 
