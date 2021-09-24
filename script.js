@@ -159,8 +159,8 @@ dataApiPlaylist
 
 function createSlideAlbum(urlthumb, namePlaylist) {
   let slidep = '<div class="albumSlide">';
-  slidep += '<div class="thumbPlaylist"><img src="' + urlthumb + '" alt="playlist"></div>';
-  slidep += '<div class="namePlaylist">' + namePlaylist + '</div>';
+  slidep += '<div class="thumbGenre"><img src="' + urlthumb + '" alt="playlist"></div>';
+  slidep += '<div class="nameGenre">' + namePlaylist + '</div>';
   slidep += '</div>';
 
   return slidep;
