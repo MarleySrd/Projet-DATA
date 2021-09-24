@@ -175,34 +175,66 @@ dataApiPlaylist
 }
 
 //// SLIDER JS
-const slider = document.querySelector('#wrpGenre');
-let isDown = false;
-let startX;
-let scrollLeft;
+const sliderGenre = document.querySelector('#wrpGenre');
+const sliderPlaylist = document.querySelector('#wrpPlaylist');
+slide(sliderGenre);
+slide(sliderPlaylist);
 
-slider.addEventListener('mousedown', (e) => {
-  isDown = true;
-  slider.style.cursor = "grabbing";
-  slider.classList.add('active');
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
-});
 
-// slider.addEventListener('mouseleave', () => {
-//   isDown = false;
-//   slider.classList.remove('active');
+function slide(el){
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+  el.addEventListener('mousedown', (e) => {
+      isDown = true;
+      el.style.cursor = "grabbing";
+      el.classList.add('active');
+      startX = e.pageX - el.offsetLeft;
+      scrollLeft = el.scrollLeft;
+    });
+
+    el.addEventListener('mouseup', () => {
+    isDown = false;
+    el.style.cursor = "grab";
+    el.classList.remove('active');
+    });
+
+    el.addEventListener('mousemove', (e) => {
+      if(!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - el.offsetLeft;
+      const walk = (x - startX) * 1;
+      el.scrollLeft = scrollLeft - walk;
+      //console.log(walk);
+    });
+}
+
+
+// slider.addEventListener('mousedown', (e) => {
+//   isDown = true;
+//   slider.style.cursor = "grabbing";
+//   slider.classList.add('active');
+//   startX = e.pageX - slider.offsetLeft;
+//   scrollLeft = slider.scrollLeft;
 // });
 
-slider.addEventListener('mouseup', () => {
-  isDown = false;
-  slider.style.cursor = "grab";
-  slider.classList.remove('active');
-});
-slider.addEventListener('mousemove', (e) => {
-  if(!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - slider.offsetLeft;
-  const walk = (x - startX) * 1;
-  slider.scrollLeft = scrollLeft - walk;
-  //console.log(walk);
-});
+// // slider.addEventListener('mouseleave', () => {
+// //   isDown = false;
+// //   slider.classList.remove('active');
+// // });
+
+// slider.addEventListener('mouseup', () => {
+//   isDown = false;
+//   slider.style.cursor = "grab";
+//   slider.classList.remove('active');
+// });
+// slider.addEventListener('mousemove', (e) => {
+//   if(!isDown) return;
+//   e.preventDefault();
+//   const x = e.pageX - slider.offsetLeft;
+//   const walk = (x - startX) * 1;
+//   slider.scrollLeft = scrollLeft - walk;
+//   //console.log(walk);
+// });
+
+
