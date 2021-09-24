@@ -27,6 +27,16 @@
         </article>
         <article id="discover">découverte</article>
         <!-- ... -->
+
+        <article id="playlist">
+            <h2>Le top des playlist à venir découvrir ou redécouvrir</h2>
+            <div class="slider">
+                <div class="wrpSlider" id="wrpPlaylist">
+                   
+                </div>
+            </div>
+        </article>
+
     </main>
     <!-- end main -->
     

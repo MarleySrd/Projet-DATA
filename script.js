@@ -31,10 +31,10 @@ dataApiAlbums
   console.log(err)
 })
 
-  // Listes Top Traks
-  const dataApiTracks = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks");
+// Listes Top Traks
+const dataApiTracks = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks");
 
-  dataApiTracks
+dataApiTracks
   .then(async (responseData) => {
     console.log(responseData);
 
@@ -42,7 +42,7 @@ dataApiAlbums
 
     console.log(response);
     try {
-      for (let i = 0; i < 10 ; i++) {
+      for (let i = 0; i < 10; i++) {
 
         let position = addZero(response.data[i].position);
         let urlThumb = response.data[i].artist.picture_small;
@@ -66,6 +66,7 @@ dataApiAlbums
   console.log(err)
 })
 
+
 function createLine(nbr, urlThumb, titleTrack, artistName, duration) {
 
   let list = '<div class="lineTop">';
@@ -83,12 +84,12 @@ function createLine(nbr, urlThumb, titleTrack, artistName, duration) {
   return list;
 }
 
-function addLineToListTopAlbums(line){
+function addLineToListTopAlbums(line) {
   let listAlbums = document.getElementById('listAlbums');
 
   listAlbums.innerHTML += line;
 }
-function addLineToListTopTracks(line){
+function addLineToListTopTracks(line) {
   let listTracks = document.getElementById('listTracks');
 
   listTracks.innerHTML += line;

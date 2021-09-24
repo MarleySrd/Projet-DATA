@@ -290,6 +290,18 @@ html { scroll-behavior: smooth; }
     font-weight: 700;
 }
 
+/* playlist */
+#playlist h2{
+    padding: 24px 64px;
+}
+
+
+
+.namePlaylist{
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 700;
+}
+
 /* listes tops */
 #tops{
     display: flex;
