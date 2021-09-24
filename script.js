@@ -1,5 +1,5 @@
 window.addEventListener('load', (event) => {
-    console.log('js work !');
+  console.log('js work !');
 });
 
 // Listes Top Albums
@@ -12,7 +12,7 @@ dataApiAlbums
 
     console.log(response);
     try {
-      for (let i = 0; i < 10 ; i++) {
+      for (let i = 0; i < 10; i++) {
         let position = response.data[i].position;
         let urlThumb = response.data[i].cover_small;
         let titleTrack = response.data[i].artist.name;
@@ -31,10 +31,10 @@ dataApiAlbums
     console.log(err)
   })
 
-  // Listes Top Traks
-  const dataApiTracks = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks");
+// Listes Top Traks
+const dataApiTracks = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks");
 
-  dataApiTracks
+dataApiTracks
   .then(async (responseData) => {
     console.log(responseData);
 
@@ -42,7 +42,7 @@ dataApiAlbums
 
     console.log(response);
     try {
-      for (let i = 0; i < 10 ; i++) {
+      for (let i = 0; i < 10; i++) {
 
         let position = response.data[i].position;
         let urlThumb = response.data[i].artist.picture_small;
@@ -61,71 +61,113 @@ dataApiAlbums
     console.log(err)
   })
 
-  function createLine(nbr, urlThumb, titleTrack, artistName, duration) {
+function createLine(nbr, urlThumb, titleTrack, artistName, duration) {
 
-    let list = '<div class="lineTop">';
-    list += '<div class="leftLine">';
-    list += '    <div class="nbr">'+nbr+'</div>';
-    list += '    <div class="thumbAlbumTopTracks"><img src="'+urlThumb+'" alt="thumb Album"></div>';
-    list += '    <div class="trackInfos">';
-    list += '        <div class="TitleTrack">'+titleTrack+'</div>';
-    list += '        <div class="artistName blue">'+artistName+'</div>';
-    list += '    </div>';
-    list += '</div>';
-    list += '<div class="timer">'+duration+'</div>';
-    list += '</div>';
+  let list = '<div class="lineTop">';
+  list += '<div class="leftLine">';
+  list += '    <div class="nbr">' + nbr + '</div>';
+  list += '    <div class="thumbAlbumTopTracks"><img src="' + urlThumb + '" alt="thumb Album"></div>';
+  list += '    <div class="trackInfos">';
+  list += '        <div class="TitleTrack">' + titleTrack + '</div>';
+  list += '        <div class="artistName blue">' + artistName + '</div>';
+  list += '    </div>';
+  list += '</div>';
+  list += '<div class="timer">' + duration + '</div>';
+  list += '</div>';
 
-    return list;
+  return list;
 }
 
-function addLineToListTopAlbums(line){
-    let listAlbums = document.getElementById('listAlbums');
+function addLineToListTopAlbums(line) {
+  let listAlbums = document.getElementById('listAlbums');
 
-    listAlbums.innerHTML += line;
+  listAlbums.innerHTML += line;
 }
-function addLineToListTopTracks(line){
-    let listTracks = document.getElementById('listTracks');
+function addLineToListTopTracks(line) {
+  let listTracks = document.getElementById('listTracks');
 
-    listTracks.innerHTML += line;
+  listTracks.innerHTML += line;
 }
 
 // Slider Genre
 const dataApiGenre = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/genre");
 
 dataApiGenre
-    .then(async (responseData) => {
-        console.log(responseData);
+  .then(async (responseData) => {
+    console.log(responseData);
 
-        const response = await responseData.json();
-        console.log(response);
-        try {
-            for (let i = 1; i < response.data.length; i++) {
-                let urlImg = response.data[i].picture;
-                let genreName = response.data[i].name;
-                let slide = createSlideAlbum(urlImg, genreName);
-                addSLideToListGenre(slide);
-            }
-            
-        } catch (err) {
-            console.log(err);
-        }
-    })
+    const response = await responseData.json();
+    console.log(response);
+    try {
+      for (let i = 1; i < response.data.length; i++) {
+        let urlImg = response.data[i].picture;
+        let genreName = response.data[i].name;
+        let slide = createSlideAlbum(urlImg, genreName);
+        addSLideToListGenre(slide);
+      }
 
-    .catch((err) => {
-        console.log(err)
-    })
-
-    function createSlideAlbum(urlthumb, nameGenre){
-        let slide = '<div class="albumSlide">';
-        slide += '<div class="thumbGenre"><img src="'+urlthumb+'" alt="album"></div>';
-        slide += '<div class="nameGenre">'+nameGenre+'</div>';
-        slide += '</div>';
-    
-        return slide;
-    
+    } catch (err) {
+      console.log(err);
     }
-    
-    function addSLideToListGenre(slide){
-        let listGenre =  document.getElementById('wrpSlider');
-        listGenre.innerHTML += slide;
+  })
+
+  .catch((err) => {
+    console.log(err)
+  })
+
+function createSlideAlbum(urlthumb, nameGenre) {
+  let slide = '<div class="albumSlide">';
+  slide += '<div class="thumbGenre"><img src="' + urlthumb + '" alt="album"></div>';
+  slide += '<div class="nameGenre">' + nameGenre + '</div>';
+  slide += '</div>';
+
+  return slide;
+
+}
+
+function addSLideToListGenre(slide) {
+  let listGenre = document.getElementById('wrpSlider');
+  listGenre.innerHTML += slide;
+}
+
+// slider playlist
+const dataApiPlaylist = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/playlists");
+
+dataApiPlaylist
+  .then(async (responseData) => {
+    console.log(responseData);
+
+    const response = await responseData.json();
+    console.log(response);
+
+    try {
+      for (let i = 0; i < response.data.length; i++) {
+        let UrlImage = response.data[i].picture;
+        let UrlTitle = response.data[i].title;
+        let slideplaylist = createSlideAlbum(UrlImage, UrlTitle);
+        addSLideToListPlaylist(slideplaylist);
+      }
+
+    } catch (err) {
+      console.log(err);
     }
+  })
+
+  .catch((err) => {
+    console.log(err)
+  })
+
+function createSlideAlbum(urlthumb, namePlaylist) {
+  let slidep = '<div class="albumSlide">';
+  slidep += '<div class="thumbPlaylist"><img src="' + urlthumb + '" alt="playlist"></div>';
+  slidep += '<div class="namePlaylist">' + namePlaylist + '</div>';
+  slidep += '</div>';
+
+  return slidep;
+
+}
+
+function addSLideToListPlaylist(slidep) {
+  let listGenre = document.getElementById('wrpPlaylist');
+  listGenre.innerHTML += slidep;
+}
