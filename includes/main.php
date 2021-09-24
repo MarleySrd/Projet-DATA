@@ -23,7 +23,9 @@
                 </div>
             </div>
         </article>
-        <article id="discover">découverte</article>
+        <article id="discover"></article>
+        
+        <article id="podcasts"></article>
 
         <!-- ... -->
     </main>
