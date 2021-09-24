@@ -1,15 +1,33 @@
+<<<<<<< HEAD
 // window.addEventListener('load', (event) => {
 //     console.log('js work !');
 // });
+=======
+window.addEventListener('load', (event) => {
+  console.log('js work !');
+});
+>>>>>>> b00f7b0fb482af6a85d7604f94c72e00c5236b85
 
 // Listes Top Albums
 const dataApiAlbums = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums");
 dataApiAlbums
-  .then(async (responseData) => {
-    console.log(responseData);
+.then(async (responseData) => {
+  console.log(responseData);
 
-    const response = await responseData.json();
+  const response = await responseData.json();
 
+  console.log(response);
+  try {
+    for (let i = 0; i < 10 ; i++) {
+      let position = response.data[i].position;
+      let urlThumb = response.data[i].cover_small;
+      let titleTrack = response.data[i].artist.name;
+      let artistName = response.data[i].title;
+      let duration = 0;
+      let line = createLine(position, urlThumb, titleTrack, artistName, duration);
+      addLineToListTopAlbums(line);
+
+<<<<<<< HEAD
     console.log(response);
     try {
       for (let i = 0; i < 10 ; i++) {
@@ -58,39 +76,74 @@ dataApiAlbums
       }
     } catch (err) {
       console.log(err);
+=======
     }
-  })
+  } catch (err) {
+    console.log(err);
+  }
+})
 
-  .catch((err) => {
-    console.log(err)
-  })
+.catch((err) => {
+  console.log(err)
+})
 
-  function createLine(nbr, urlThumb, titleTrack, artistName, duration) {
+// Listes Top Traks
+const dataApiTracks = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks");
 
-    let list = '<div class="lineTop">';
-    list += '<div class="leftLine">';
-    list += '    <div class="nbr">'+nbr+'</div>';
-    list += '    <div class="thumbAlbumTopTracks"><img src="'+urlThumb+'" alt="thumb Album"></div>';
-    list += '    <div class="trackInfos">';
-    list += '        <div class="TitleTrack">'+titleTrack+'</div>';
-    list += '        <div class="artistName blue">'+artistName+'</div>';
-    list += '    </div>';
-    list += '</div>';
-    list += '<div class="timer">'+duration+'</div>';
-    list += '</div>';
+dataApiTracks
+.then(async (responseData) => {
+  console.log(responseData);
 
-    return list;
+  const response = await responseData.json();
+
+  console.log(response);
+  try {
+    for (let i = 0; i < 10 ; i++) {
+
+      let position = response.data[i].position;
+      let urlThumb = response.data[i].artist.picture_small;
+      let artistName = response.data[i].artist.name;
+      let titleTrack = response.data[i].title;
+      let duration = 0;
+      let line = createLine(position, urlThumb, titleTrack, artistName, duration);
+      addLineToListTopTracks(line);
+>>>>>>> b00f7b0fb482af6a85d7604f94c72e00c5236b85
+    }
+  } catch (err) {
+    console.log(err);
+  }
+})
+
+.catch((err) => {
+  console.log(err)
+})
+
+function createLine(nbr, urlThumb, titleTrack, artistName, duration) {
+
+  let list = '<div class="lineTop">';
+  list += '<div class="leftLine">';
+  list += '    <div class="nbr">'+nbr+'</div>';
+  list += '    <div class="thumbAlbumTopTracks"><img src="'+urlThumb+'" alt="thumb Album"></div>';
+  list += '    <div class="trackInfos">';
+  list += '        <div class="TitleTrack">'+titleTrack+'</div>';
+  list += '        <div class="artistName blue">'+artistName+'</div>';
+  list += '    </div>';
+  list += '</div>';
+  list += '<div class="timer">'+duration+'</div>';
+  list += '</div>';
+
+  return list;
 }
 
 function addLineToListTopAlbums(line){
-    let listAlbums = document.getElementById('listAlbums');
+  let listAlbums = document.getElementById('listAlbums');
 
-    listAlbums.innerHTML += line;
+  listAlbums.innerHTML += line;
 }
 function addLineToListTopTracks(line){
-    let listTracks = document.getElementById('listTracks');
+  let listTracks = document.getElementById('listTracks');
 
-    listTracks.innerHTML += line;
+  listTracks.innerHTML += line;
 }
 
 // Slider Genre
