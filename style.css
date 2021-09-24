@@ -261,14 +261,14 @@ header{
 #genre h2{
     padding: 24px 64px;
 }
-#slider{
+.slider{
     width: 100%;
     /* height: 300px; */
     overflow: hidden;
     padding-bottom: 24px;
 }
 
-#wrpSlider{
+.wrpSlider{
     display: flex;
     overflow-x: scroll;
     padding-left: 64px;

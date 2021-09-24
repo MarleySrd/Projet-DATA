@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 // window.addEventListener('load', (event) => {
 //     console.log('js work !');
 // });
-=======
-window.addEventListener('load', (event) => {
-  console.log('js work !');
-});
->>>>>>> b00f7b0fb482af6a85d7604f94c72e00c5236b85
 
 // Listes Top Albums
 const dataApiAlbums = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums");
@@ -17,18 +11,6 @@ dataApiAlbums
   const response = await responseData.json();
 
   console.log(response);
-  try {
-    for (let i = 0; i < 10 ; i++) {
-      let position = response.data[i].position;
-      let urlThumb = response.data[i].cover_small;
-      let titleTrack = response.data[i].artist.name;
-      let artistName = response.data[i].title;
-      let duration = 0;
-      let line = createLine(position, urlThumb, titleTrack, artistName, duration);
-      addLineToListTopAlbums(line);
-
-<<<<<<< HEAD
-    console.log(response);
     try {
       for (let i = 0; i < 10 ; i++) {
         let position = addZero(response.data[i].position);
@@ -43,11 +25,11 @@ dataApiAlbums
     } catch (err) {
       console.log(err);
     }
-  })
+})
 
-  .catch((err) => {
-    console.log(err)
-  })
+.catch((err) => {
+  console.log(err)
+})
 
   // Listes Top Traks
   const dataApiTracks = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks");
@@ -76,42 +58,8 @@ dataApiAlbums
       }
     } catch (err) {
       console.log(err);
-=======
     }
-  } catch (err) {
-    console.log(err);
-  }
-})
 
-.catch((err) => {
-  console.log(err)
-})
-
-// Listes Top Traks
-const dataApiTracks = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks");
-
-dataApiTracks
-.then(async (responseData) => {
-  console.log(responseData);
-
-  const response = await responseData.json();
-
-  console.log(response);
-  try {
-    for (let i = 0; i < 10 ; i++) {
-
-      let position = response.data[i].position;
-      let urlThumb = response.data[i].artist.picture_small;
-      let artistName = response.data[i].artist.name;
-      let titleTrack = response.data[i].title;
-      let duration = 0;
-      let line = createLine(position, urlThumb, titleTrack, artistName, duration);
-      addLineToListTopTracks(line);
->>>>>>> b00f7b0fb482af6a85d7604f94c72e00c5236b85
-    }
-  } catch (err) {
-    console.log(err);
-  }
 })
 
 .catch((err) => {
