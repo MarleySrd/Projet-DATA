@@ -150,10 +150,14 @@ dataApiArtist
     const response = await responseData.json();
     console.log(response);
     try {
-      let urlImg = response.data[1].picture_xl;
-      let artist = createSlideAlbum(urlImg);
-      addSLideToListArtist(artist);
-
+      const urlBackground = response.data[1].picture_xl;
+      const urlName = response.artists.data[0].name;
+      console.log(urlBackground);
+      console.log(urlName);
+      
+      let discover = document.getElementById('discover')
+      document.getElementById('discover').style.cssText = "background-image: url('" + artMomentPicture + "');";
+      discover.innerHTML = "<h2>Découvrez l'artiste du moment " + artMoment + "</h2>";
 
     } catch (err) {
       console.log(err);
@@ -163,20 +167,6 @@ dataApiArtist
   .catch((err) => {
     console.log(err)
   })
-
-function createSlideAlbum(urlthumb) {
-  let slide = '<div class="albumSlide">';
-  slide += '<div class="thumbGenre"><img src="' + urlthumb + '" alt="album"></div>';
-  slide += '</div>';
-
-  return slide;
-
-}
-
-function addSLideToListArtist(artist) {
-  let listGenre = document.getElementById('discover');
-  listGenre.innerHTML = artist;
-}
 
 
 
