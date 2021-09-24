@@ -275,7 +275,7 @@ header{
     scrollbar-width: none;
     cursor:grab;
 }
-#wrpSlider::-webkit-scrollbar{ width: 0; }
+.wrpSlider::-webkit-scrollbar{ width: 0; }
 html { scroll-behavior: smooth; }
 .albumSlide{ margin: 0px 24px 0px 0px; }
 .thumbGenre{ cursor: pointer;}
