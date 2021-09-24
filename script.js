@@ -1,8 +1,6 @@
-
 // window.addEventListener('load', (event) => {
 //     console.log('js work !');
 // });
-
 
 // Listes Top Albums
 const dataApiAlbums = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums");
@@ -12,7 +10,7 @@ dataApiAlbums
 
   const response = await responseData.json();
 
-    console.log(response);
+  console.log(response);
     try {
       for (let i = 0; i < 10 ; i++) {
         let position = addZero(response.data[i].position);
@@ -27,11 +25,11 @@ dataApiAlbums
     } catch (err) {
       console.log(err);
     }
-  })
+})
 
-  .catch((err) => {
-    console.log(err)
-  })
+.catch((err) => {
+  console.log(err)
+})
 
 // Listes Top Traks
 const dataApiTracks = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks");
@@ -60,9 +58,9 @@ dataApiTracks
       }
     } catch (err) {
       console.log(err);
-
     }
-  })
+
+})
 
 .catch((err) => {
   console.log(err)
@@ -132,7 +130,7 @@ function createSlideAlbum(urlthumb, nameGenre){
 }
 
 function addSLideToListGenre(slide){
-    let listGenre =  document.getElementById('#wrpGenre');
+    let listGenre =  document.getElementById('wrpGenre');
     listGenre.innerHTML += slide;
 }
 
