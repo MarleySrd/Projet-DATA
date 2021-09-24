@@ -108,7 +108,7 @@ dataApiGenre
             for (let i = 1; i < response.data.length; i++) {
                 let urlImg = response.data[i].picture;
                 let genreName = response.data[i].name;
-                let slide = createSlideAlbum(urlImg, genreName);
+                let slide = createSlide(urlImg, genreName);
                 addSLideToListGenre(slide);
             }
             
@@ -121,13 +121,7 @@ dataApiGenre
         console.log(err)
     })
 
-function createSlideAlbum(urlthumb, nameGenre){
-    let slide = '<div class="albumSlide">';
-    slide += '<div class="thumbGenre"><img src="'+urlthumb+'" alt="album"></div>';
-    slide += '<div class="nameGenre">'+nameGenre+'</div>';
-    slide += '</div>';
-    return slide;
-}
+
 
 function addSLideToListGenre(slide){
     let listGenre =  document.getElementById('wrpGenre');
@@ -139,6 +133,45 @@ function addZero(i) {
     i = "0" + i;
   }
   return i;
+}
+// slider playlist
+const dataApiPlaylist = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/playlists");
+
+dataApiPlaylist
+  .then(async (responseData) => {
+    console.log(responseData);
+
+    const response = await responseData.json();
+    console.log(response);
+
+    try {
+      for (let i = 0; i < response.data.length; i++) {
+        let UrlImage = response.data[i].picture;
+        let UrlTitle = response.data[i].title;
+        let slideplaylist = createSlide(UrlImage, UrlTitle);
+        addSLideToListPlaylist(slideplaylist);
+      }
+
+    } catch (err) {
+      console.log(err);
+    }
+  })
+
+  .catch((err) => {
+    console.log(err)
+  })
+
+  function addSLideToListPlaylist(slide){
+    let listPlaylist =  document.getElementById('wrpPlaylist');
+    listPlaylist.innerHTML += slide;
+}
+
+  function createSlide(urlthumb, nameGenre){
+    let slide = '<div class="albumSlide">';
+    slide += '<div class="thumbGenre"><img src="'+urlthumb+'" alt="album"></div>';
+    slide += '<div class="nameGenre">'+nameGenre+'</div>';
+    slide += '</div>';
+    return slide;
 }
 
 //// SLIDER JS
