@@ -1,6 +1,6 @@
-window.addEventListener('load', (event) => {
-    console.log('js work !');
-});
+// window.addEventListener('load', (event) => {
+//     console.log('js work !');
+// });
 
 // Listes Top Albums
 const dataApiAlbums = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums");
@@ -13,11 +13,11 @@ dataApiAlbums
     console.log(response);
     try {
       for (let i = 0; i < 10 ; i++) {
-        let position = response.data[i].position;
+        let position = addZero(response.data[i].position);
         let urlThumb = response.data[i].cover_small;
         let titleTrack = response.data[i].artist.name;
         let artistName = response.data[i].title;
-        let duration = 0;
+        let duration = '';
         let line = createLine(position, urlThumb, titleTrack, artistName, duration);
         addLineToListTopAlbums(line);
 
@@ -44,12 +44,16 @@ dataApiAlbums
     try {
       for (let i = 0; i < 10 ; i++) {
 
-        let position = response.data[i].position;
+        let position = addZero(response.data[i].position);
         let urlThumb = response.data[i].artist.picture_small;
         let artistName = response.data[i].artist.name;
         let titleTrack = response.data[i].title;
-        let duration = 0;
-        let line = createLine(position, urlThumb, titleTrack, artistName, duration);
+        let duration = new Date((response.data[i].duration)*1000);
+        let min = duration.getMinutes();
+        let sec = duration.getSeconds();
+        let timer = addZero(min)+':'+addZero(sec);
+
+        let line = createLine(position, urlThumb, titleTrack, artistName, timer);
         addLineToListTopTracks(line);
       }
     } catch (err) {
@@ -115,17 +119,55 @@ dataApiGenre
         console.log(err)
     })
 
-    function createSlideAlbum(urlthumb, nameGenre){
-        let slide = '<div class="albumSlide">';
-        slide += '<div class="thumbGenre"><img src="'+urlthumb+'" alt="album"></div>';
-        slide += '<div class="nameGenre">'+nameGenre+'</div>';
-        slide += '</div>';
-    
-        return slide;
-    
-    }
-    
-    function addSLideToListGenre(slide){
-        let listGenre =  document.getElementById('wrpSlider');
-        listGenre.innerHTML += slide;
-    }
+function createSlideAlbum(urlthumb, nameGenre){
+    let slide = '<div class="albumSlide">';
+    slide += '<div class="thumbGenre"><img src="'+urlthumb+'" alt="album"></div>';
+    slide += '<div class="nameGenre">'+nameGenre+'</div>';
+    slide += '</div>';
+    return slide;
+}
+
+function addSLideToListGenre(slide){
+    let listGenre =  document.getElementById('wrpSlider');
+    listGenre.innerHTML += slide;
+}
+
+function addZero(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+
+//// SLIDER JS
+const slider = document.querySelector('#wrpAlbum');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener('mousedown', (e) => {
+  isDown = true;
+  slider.style.cursor = "grabbing";
+  slider.classList.add('active');
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+
+// slider.addEventListener('mouseleave', () => {
+//   isDown = false;
+//   slider.classList.remove('active');
+// });
+
+slider.addEventListener('mouseup', () => {
+  isDown = false;
+  slider.style.cursor = "grab";
+  slider.classList.remove('active');
+});
+slider.addEventListener('mousemove', (e) => {
+  if(!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 1;
+  slider.scrollLeft = scrollLeft - walk;
+  //console.log(walk);
+});
