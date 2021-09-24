@@ -129,7 +129,7 @@ function createSlideAlbum(urlthumb, nameGenre){
 }
 
 function addSLideToListGenre(slide){
-    let listGenre =  document.getElementById('wrpSlider');
+    let listGenre =  document.getElementById('wrpGenre');
     listGenre.innerHTML += slide;
 }
 
@@ -141,7 +141,7 @@ function addZero(i) {
 }
 
 //// SLIDER JS
-const slider = document.querySelector('#wrpAlbum');
+const slider = document.querySelector('#wrpGenre');
 let isDown = false;
 let startX;
 let scrollLeft;
