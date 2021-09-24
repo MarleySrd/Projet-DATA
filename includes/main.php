@@ -2,8 +2,8 @@
     <main>
         <article id="genre">
             <h2>Genre</h2>
-            <div id="slider">
-                <div id="wrpSlider">
+            <div class="slider">
+                <div class="wrpSlider" id="wrpGenre">
                    
                 </div>
             </div>
