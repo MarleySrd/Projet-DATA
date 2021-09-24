@@ -1,8 +1,4 @@
 
-window.addEventListener('load', (event) => {
-  console.log('js work !');
-});
-
 // window.addEventListener('load', (event) => {
 //     console.log('js work !');
 // });
@@ -15,18 +11,6 @@ dataApiAlbums
   console.log(responseData);
 
   const response = await responseData.json();
-
-  console.log(response);
-  try {
-    for (let i = 0; i < 10 ; i++) {
-      let position = response.data[i].position;
-      let urlThumb = response.data[i].cover_small;
-      let titleTrack = response.data[i].artist.name;
-      let artistName = response.data[i].title;
-      let duration = 0;
-      let line = createLine(position, urlThumb, titleTrack, artistName, duration);
-      addLineToListTopAlbums(line);
-
 
     console.log(response);
     try {
@@ -79,15 +63,6 @@ dataApiTracks
 
     }
   })
-
-  .catch((err) => {
-    console.log(err)
-  })
-    }
-  } catch (err) {
-    console.log(err);
-  }
-})
 
 .catch((err) => {
   console.log(err)
@@ -157,7 +132,7 @@ function createSlideAlbum(urlthumb, nameGenre){
 }
 
 function addSLideToListGenre(slide){
-    let listGenre =  document.getElementById('wrpSlider');
+    let listGenre =  document.getElementById('#wrpGenre');
     listGenre.innerHTML += slide;
 }
 
@@ -169,7 +144,7 @@ function addZero(i) {
 }
 
 //// SLIDER JS
-const slider = document.querySelector('#wrpAlbum');
+const slider = document.querySelector('#wrpGenre');
 let isDown = false;
 let startX;
 let scrollLeft;
