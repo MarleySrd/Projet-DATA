@@ -171,8 +171,12 @@ dataApiPlaylist
         let UrlTitle = response.data[i].title;
         let slideplaylist = createSlide(UrlImage, UrlTitle);
         addSLideToListPlaylist(slideplaylist);
-      }
 
+      }
+    }catch (err) {
+        console.log(err);
+      }
+})
 .catch((err) => {
   console.log(err)
 })
