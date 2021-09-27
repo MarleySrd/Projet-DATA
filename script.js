@@ -27,9 +27,9 @@ dataApiAlbums
     }
 })
 
-.catch((err) => {
-  console.log(err)
-})
+  .catch((err) => {
+    console.log(err)
+  })
 
 // Listes Top Traks
 const dataApiTracks = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks");
@@ -62,9 +62,9 @@ dataApiTracks
 
 })
 
-.catch((err) => {
-  console.log(err)
-})
+  .catch((err) => {
+    console.log(err)
+  })
 
 
 function createLine(nbr, urlThumb, titleTrack, artistName, duration) {

@@ -1,5 +1,3 @@
-    <!-- main -->
-    <main>
         <article id="genre">
             <h2>Genre</h2>
             <div class="slider">
@@ -38,5 +36,6 @@
         </article>
 
     </main>
+
     <!-- end main -->
     
