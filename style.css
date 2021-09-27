@@ -338,6 +338,33 @@ html { scroll-behavior: smooth; }
      font-weight: 300;
      font-size: 14px;
 }
+#discover{
+    position: relative;
+    height: 403px;
+    max-width: 1440px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#discover div{
+    position: absolute;
+    bottom: 100px;
+    left: 150px;
+    display: flex;  
+   }
+   .play-icon{
+    width: 76px;
+    height: 76px;
+    background: #3BC8E7;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+   }
+   #discover h2{
+     font-size: 36px;
+     margin-left: 20px;
+     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   }
 /* { display:flex; } */
 /*//////////////////////////////////          footer */
 footer{

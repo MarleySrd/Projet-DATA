@@ -2,8 +2,10 @@
 //     console.log('js work !');
 // });
 
+
 // Listes Top Albums
 const dataApiAlbums = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums");
+
 dataApiAlbums
 .then(async (responseData) => {
   console.log(responseData);
@@ -124,8 +126,39 @@ function addZero(i) {
   }
   return i;
 }
+
+  //banner artist
+  const dataApiArtist = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/artists");
+  
+  dataApiArtist
+    .then(async (responseData) => {
+      console.log(responseData);
+  
+      const response = await responseData.json();
+      console.log(response);
+      try {
+        const urlBackground = response.data[0].picture_xl;
+        const urlName = response.data[0].name.toUpperCase();
+        console.log(urlBackground);
+        console.log(urlName);
+        
+        let discover = document.querySelector('#discover div')
+        document.getElementById('discover').style.cssText = "background-image: url('" + urlBackground + "');";
+        discover.innerHTML = '<button class="play-icon"><img src="img/iconPlay.svg" alt="bouton jouer"></button>';
+        discover.innerHTML += "<h2>Découvrez l'artiste du moment <br/>" + urlName + "</h2>";
+  
+      } catch (err) {
+        console.log(err);
+      }
+     })
+  
+     .catch((err) => {
+      console.log(err)
+     })
+  
 // slider playlist
 const dataApiPlaylist = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/playlists");
+
 
 dataApiPlaylist
   .then(async (responseData) => {
@@ -159,6 +192,7 @@ dataApiPlaylist
     return slide;
 }
 
+
 function addSLideToListPlaylist(slide){
   let listPlaylist =  document.getElementById('wrpPlaylist');
   listPlaylist.innerHTML += slide;
@@ -174,6 +208,7 @@ function addLineToListTopTracks(line) {
 
   listTracks.innerHTML += line;
 }
+
 
 //// SLIDER JS
 const sliderGenre = document.querySelector('#wrpGenre');
@@ -210,4 +245,3 @@ function slide(el){
       //console.log(walk);
     });
 }
-
