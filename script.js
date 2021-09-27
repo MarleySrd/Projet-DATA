@@ -68,18 +68,21 @@ dataApiTracks
 
 
 function createLine(nbr, urlThumb, titleTrack, artistName, duration) {
-
-  let list = '<div class="lineTop">';
-  list += '<div class="leftLine">';
+  let list = '<div class="wrapperLine">';
+  list += ' <div class="lineTop">';
+  list += '   <div class="leftLine">';
   list += '    <div class="nbr">'+nbr+'</div>';
   list += '    <div class="thumbAlbumTopTracks"><img src="'+urlThumb+'" alt="thumb Album"></div>';
-  list += '    <div class="trackInfos">';
+  list += '     <div class="trackInfos">';
   list += '        <div class="TitleTrack">'+titleTrack+'</div>';
   list += '        <div class="artistName blue">'+artistName+'</div>';
-  list += '    </div>';
+  list += '     </div>';
+  list += '   </div>';
+  list += '   <div class="timer">'+duration+'</div>';
+  list += ' </div>';
+  list += ' <div class="bkgLineTop"></div>';
   list += '</div>';
-  list += '<div class="timer">'+duration+'</div>';
-  list += '</div>';
+  
 
   return list;
 }
@@ -174,6 +177,15 @@ function addLineToListTopTracks(line) {
 
   listTracks.innerHTML += line;
 }
+
+// //// ACTIVE LINE
+// let lines = document.getElementsByClass('lineTop');
+// for (let i = 0; i < lines.length; i++) {
+//     lines[index].addEventListener('mouseover'; 
+    
+//     );
+  
+// }
 
 //// SLIDER JS
 const sliderGenre = document.querySelector('#wrpGenre');
