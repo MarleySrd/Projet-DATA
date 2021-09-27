@@ -23,14 +23,7 @@
                 </div>
             </div>
         </article>
-<<<<<<< HEAD
-        <article id="discover"></article>
-        
-        <article id="podcasts"></article>
-
-=======
         <!-- <article id="discover">découverte</article> -->
->>>>>>> main
         <!-- ... -->
 
         <article id="playlist">
