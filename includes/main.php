@@ -23,9 +23,11 @@
                 </div>
             </div>
         </article>
-        <!-- <article id="discover">découverte</article> -->
-        <!-- ... -->
-
+        <article id="discover">
+            <div>
+                <button class="play-icon"><img src="img/iconPlay.svg" alt="bouton jouer"></button>
+            </div>
+        </article>
         <article id="playlist">
             <h2><span class="blue">Le top</span> des playlist à venir découvrir ou redécouvrir</h2>
             <div class="slider">
@@ -34,6 +36,16 @@
                 </div>
             </div>
         </article>
+
+        <article id="radio">
+            <div class="slider">
+                <div class="wrpSlider" id="wrpDescription">
+                   
+                </div>
+            </div>
+        </article>
+
+        
 
     </main>
 
