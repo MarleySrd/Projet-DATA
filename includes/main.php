@@ -2,8 +2,8 @@
     <main>
         <article id="genre">
             <h2>Genre</h2>
-            <div id="slider">
-                <div id="wrpSlider">
+            <div class="slider">
+                <div class="wrpSlider" id="wrpGenre">
                    
                 </div>
             </div>
@@ -25,8 +25,18 @@
                 </div>
             </div>
         </article>
-        <article id="discover">découverte</article>
+        <!-- <article id="discover">découverte</article> -->
         <!-- ... -->
+
+        <article id="playlist">
+            <h2><span class="blue">Le top</span> des playlist à venir découvrir ou redécouvrir</h2>
+            <div class="slider">
+                <div class="wrpSlider" id="wrpPlaylist">
+                   
+                </div>
+            </div>
+        </article>
+
     </main>
     <!-- end main -->
     
