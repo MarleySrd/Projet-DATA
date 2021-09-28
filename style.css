@@ -268,8 +268,6 @@ header{
     display: flex;
     overflow-x: scroll;
     padding-left: 64px;
-<<<<<<< HEAD
-  
     scrollbar-width: 0;
 }
 #wrpSlider::-webkit-scrollbar{
@@ -283,7 +281,6 @@ header{
    
 } */
 .nameGenre{
-=======
     scrollbar-width: none;
     cursor:grab;
 }
@@ -298,7 +295,6 @@ html { scroll-behavior: smooth; }
     user-select: none; /* Standard */
 }
 .name{
->>>>>>> laurent
     font-family: 'Urbanist', sans-serif;
     font-weight: 700;
 }
@@ -477,8 +473,7 @@ footer{
     display: flex;
     margin: 20px 0px;
 }
-<<<<<<< HEAD
-=======
+
 
 #player{
     position:fixed;
@@ -526,4 +521,4 @@ footer{
 #previous-icon{
     transform: scaleX(-1);
 }
->>>>>>> laurent
+

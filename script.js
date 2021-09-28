@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 window.addEventListener('load', (event) => {
   console.log('js work !');
 });
-=======
-// window.addEventListener('load', (event) => {
-//     console.log('js work !');
-// });
->>>>>>> laurent
 
 // Listes Top Albums
 const dataApiAlbums = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums");
@@ -74,7 +68,6 @@ dataApiTracks
 
 
 function createLine(nbr, urlThumb, titleTrack, artistName, duration) {
-<<<<<<< HEAD
 
   let list = '<div class="lineTop">';
   list += '<div class="leftLine">';
@@ -86,22 +79,20 @@ function createLine(nbr, urlThumb, titleTrack, artistName, duration) {
   list += '    </div>';
   list += '</div>';
   list += '<div class="timer">' + duration + '</div>';
-=======
-  let list = '<div class="wrapperLine">';
-  list += ' <div class="lineTop">';
-  list += '   <div class="leftLine">';
-  list += '    <div class="nbr">'+nbr+'</div>';
-  list += '    <div class="thumbAlbumTopTracks"><img src="'+urlThumb+'" alt="thumb Album"></div>';
-  list += '     <div class="trackInfos">';
-  list += '        <div class="TitleTrack">'+titleTrack+'</div>';
-  list += '        <div class="artistName blue">'+artistName+'</div>';
-  list += '     </div>';
-  list += '   </div>';
-  list += '   <div class="timer">'+duration+'</div>';
-  list += ' </div>';
-  list += ' <div class="bkgLineTop"></div>';
->>>>>>> laurent
-  list += '</div>';
+  // let list = '<div class="wrapperLine">';
+  // list += ' <div class="lineTop">';
+  // list += '   <div class="leftLine">';
+  // list += '    <div class="nbr">'+nbr+'</div>';
+  // list += '    <div class="thumbAlbumTopTracks"><img src="'+urlThumb+'" alt="thumb Album"></div>';
+  // list += '     <div class="trackInfos">';
+  // list += '        <div class="TitleTrack">'+titleTrack+'</div>';
+  // list += '        <div class="artistName blue">'+artistName+'</div>';
+  // list += '     </div>';
+  // list += '   </div>';
+  // list += '   <div class="timer">'+duration+'</div>';
+  // list += ' </div>';
+  // list += ' <div class="bkgLineTop"></div>';
+  // list += '</div>';
   
 
   return list;
@@ -194,7 +185,6 @@ dataApiPlaylist
         let UrlTitle = response.data[i].title;
         let slideplaylist = createSlide(UrlImage, UrlTitle);
         addSLideToListPlaylist(slideplaylist);
-<<<<<<< HEAD
 
       }
     }catch (err) {
@@ -205,42 +195,6 @@ dataApiPlaylist
   console.log(err)
 })
 
-// Listes Top Traks
-const dataApiTracks = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks");
-
-dataApiTracks
-.then(async (responseData) => {
-  console.log(responseData);
-=======
-      }
->>>>>>> laurent
-
-
-    } catch (err) {
-      console.log(err);
-    }
-  })
-.catch((err) => {
-  console.log(err)
-})
-
-<<<<<<< HEAD
-function createLine(nbr, urlThumb, titleTrack, artistName, duration) {
-
-  let list = '<div class="lineTop">';
-  list += '<div class="leftLine">';
-  list += '    <div class="nbr">'+nbr+'</div>';
-  list += '    <div class="thumbAlbumTopTracks"><img src="'+urlThumb+'" alt="thumb Album"></div>';
-  list += '    <div class="trackInfos">';
-  list += '        <div class="TitleTrack">'+titleTrack+'</div>';
-  list += '        <div class="artistName blue">'+artistName+'</div>';
-  list += '    </div>';
-  list += '</div>';
-  list += '<div class="timer">'+duration+'</div>';
-  list += '</div>';
-
-  return list;
-}
 
 function addLineToListTopAlbums(line){
   let listAlbums = document.getElementById('listAlbums');
@@ -253,34 +207,7 @@ function addLineToListTopTracks(line){
   listTracks.innerHTML += line;
 }
 
-// Slider Genre
-const dataApiGenre = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/genre");
 
-dataApiGenre
-  .then(async (responseData) => {
-      console.log(responseData);
-
-      const response = await responseData.json();
-      console.log(response);
-      try {
-          for (let i = 1; i < response.data.length; i++) {
-              let urlImg = response.data[i].picture;
-              let genreName = response.data[i].name;
-              let slide = createSlideAlbum(urlImg, genreName);
-              addSLideToListGenre(slide);
-          }
-          
-      } catch (err) {
-          console.log(err);
-      }
-  })
-
-  .catch((err) => {
-      console.log(err)
-  })
-
-=======
->>>>>>> laurent
   function createSlide(urlthumb, nameGenre){
     let slide = '<div class="slide">';
     slide += '<div class="thumb"><img src="'+urlthumb+'" alt="album"></div>';
@@ -306,17 +233,7 @@ function addLineToListTopTracks(line) {
   listTracks.innerHTML += line;
 }
 
-<<<<<<< HEAD
-=======
-// //// ACTIVE LINE
-// let lines = document.getElementsByClass('lineTop');
-// for (let i = 0; i < lines.length; i++) {
-//     lines[index].addEventListener('mouseover'; 
-    
-//     );
-  
-// }
->>>>>>> laurent
+
 
 //// SLIDER JS
 const sliderGenre = document.querySelector('#wrpGenre');
@@ -353,7 +270,4 @@ function slide(el){
       //console.log(walk);
     });
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> laurent
