@@ -15,8 +15,8 @@ dataApiAlbums
       for (let i = 0; i < 10 ; i++) {
         let position = addZero(response.data[i].position);
         let urlThumb = response.data[i].cover_small;
-        let titleTrack = response.data[i].artist.name;
-        let artistName = response.data[i].title;
+        let artistName = response.data[i].artist.name;
+        let titleTrack = response.data[i].title;
         let duration = '';
         let line = createLine(position, urlThumb, titleTrack, artistName, duration);
         addLineToListTopAlbums(line);
