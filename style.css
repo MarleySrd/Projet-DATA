@@ -255,16 +255,11 @@ header{
 }
 
 /*//////////////////////////////////          main */
-/* genre */
-/* #genre{
-    padding: 64px;
-} */
 #genre h2{
     padding: 24px 64px;
 }
 .slider{
     width: 100%;
-    /* height: 300px; */
     overflow: hidden;
     padding-bottom: 24px;
 }
@@ -273,6 +268,7 @@ header{
     display: flex;
     overflow-x: scroll;
     padding-left: 64px;
+<<<<<<< HEAD
   
     scrollbar-width: 0;
 }
@@ -287,6 +283,22 @@ header{
    
 } */
 .nameGenre{
+=======
+    scrollbar-width: none;
+    cursor:grab;
+}
+.wrpSlider::-webkit-scrollbar{ width: 0; }
+html { scroll-behavior: smooth; }
+.slide{ margin: 0px 24px 0px 0px; }
+.thumb{ cursor: pointer;}
+.thumb img{
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+.name{
+>>>>>>> laurent
     font-family: 'Urbanist', sans-serif;
     font-weight: 700;
 }
@@ -306,17 +318,38 @@ header{
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1); 
 }
 #topTracks, #topAlbums{ width: 50%; }
-
+#topTracks{ margin-right: 50px;}
 .listTop{
     margin: 64px 0px;
 }
-.listTop div{ padding:  0px 14px 0px 0px; }
+
 .lineTop{ 
     display: flex; 
     justify-content: space-between;
     align-items: center;
     margin:15px 0px;
+    padding:2px;
+    
 }
+.bkgLineTop{
+    position:relative;
+    bottom: 0;
+    height:1px;
+    width: 100%;
+    background-color: grey;
+    opacity: 0.2;
+    padding: 0 !important;
+    transition:0.3s;
+}
+.wrapperLine{ cursor:pointer; }
+.wrapperLine div{ padding: 2px 6px; }
+.wrapperLine:hover .bkgLineTop{
+    background-color: #3BC8E7;
+    transform: scale(1, 100); /* Équivalent à scaleX(2) scaleY(0.5) */
+    transform-origin: bottom;
+}
+
+
 .nbr{
     font-family: 'Urbanist', sans-serif;
     font-weight: 900;
@@ -372,6 +405,7 @@ footer{
     flex-direction: row;
     justify-content: space-between;
     padding:64px;
+    margin-bottom: 121px;
     background: rgb(64,64,64);
     background: -moz-linear-gradient(0deg, rgba(64,64,64,1) 0%, rgba(0,0,0,1) 100%);
     background: -webkit-linear-gradient(0deg, rgba(64,64,64,1) 0%, rgba(0,0,0,1) 100%);
@@ -443,3 +477,53 @@ footer{
     display: flex;
     margin: 20px 0px;
 }
+<<<<<<< HEAD
+=======
+
+#player{
+    position:fixed;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    background-color: #111013;
+    width:100%;
+    height:121px;
+    bottom:0px;
+  
+}
+#player section{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#timer{
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 300;
+    font-size:14px;
+    color:#F0F5F9;
+}
+#ctrlAudio{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 300px;
+}
+.play-icon{
+    background-color: #3BC8E7;
+    border-radius: 50%;
+    width: 76px;
+    height: 76px;
+    border:none;
+    cursor: pointer;
+}
+#previous-icon, #following-icon{
+    background: none;
+    border:none;
+    cursor: pointer;
+}
+#previous-icon{
+    transform: scaleX(-1);
+}
+>>>>>>> laurent
