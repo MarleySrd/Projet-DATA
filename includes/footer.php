@@ -48,5 +48,3 @@
     <!-- end footer -->
 
     </div>
-</body>
-</html>

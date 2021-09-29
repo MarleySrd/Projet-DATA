@@ -150,7 +150,9 @@ header{
 }
 
 #search{
-    width: 358px;
+    min-width: 70px;
+    width: 25vw;
+    max-width: 358px;
     height: 38px;
     border: 1px dotted papayawhip;
     background-color: #F0F5F9;
@@ -180,13 +182,10 @@ header{
     display: flex;
     font-weight: 900;
     align-items: center;
-    justify-content: center;
-    width: 250px;
+    justify-content: space-evenly;
+    width: 25vw;
+    max-width: 250px;
 }
-
-#avatar{ margin:15px; }
-#name{ margin:15px; }
-
 /*//////////////////////////////////          banner */
 #banner{
     position: relative;
@@ -215,6 +214,7 @@ header{
     padding: 64px;
     position: absolute;
     bottom: 0;
+    /* border: 1px dotted blue; */
 }
 
 #titleBlockBanner{
@@ -228,7 +228,6 @@ header{
     font-size: 1vw;
     line-height: 25px;
     padding:25px 0px;
-    font-size: 1vw;
 }
 
 #btBlockBanner{
@@ -575,4 +574,29 @@ footer{
 }
 #previous-icon{
     transform: scaleX(-1);
+}
+
+
+
+@media (max-width: 1250px) { 
+    #blockBanner{
+        width: 85%;
+        top:20px;
+    }
+
+    #txtBlockBanner{
+        font-size: 2vw;
+        line-height: 30px;
+    }
+
+    #btBlockBanner button{
+        width: 200px;
+        margin:0px 15px 0px 0px;
+    }
+}
+
+@media (max-width: 768px) { 
+    .tops { padding: 24px; }
+    .tops h2{ font-size:14px; }
+    .trackInfos { font-size:12px; }
 }
