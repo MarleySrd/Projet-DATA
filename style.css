@@ -437,14 +437,6 @@ html { scroll-behavior: smooth; }
     left: 150px;
     display: flex;  
    }
-   .play-icon{
-    width: 76px;
-    height: 76px;
-    background: #3BC8E7;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-   }
    #discover h2{
      font-size: 36px;
      margin-left: 20px;
