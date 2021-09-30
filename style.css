@@ -310,12 +310,10 @@ html { scroll-behavior: smooth; }
 }
 
 /* Podcast */
-
+#radio h2 { padding: 24px 64px; }
 .radioSlide {
     margin: 0px 24px 0px 0px;
     position: relative;
-    width: 50%;
-
 }
 
 .thumbRadio {
@@ -346,7 +344,6 @@ html { scroll-behavior: smooth; }
     position: absolute;
     bottom: 0;
     left: 0;
-    right: 0;
     background-color: #3BC8E7;
     overflow: hidden;
     width: 100%;
@@ -435,13 +432,19 @@ html { scroll-behavior: smooth; }
     bottom: 100px;
     left: 150px;
     display: flex;  
+<<<<<<< HEAD
    }
    #discover h2{
+=======
+}
+
+#discover h2{
+>>>>>>> laurent
      font-size: 36px;
      margin-left: 20px;
      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-   }
-/* { display:flex; } */
+}
+
 /*//////////////////////////////////          footer */
 footer{
     display: flex;
@@ -475,7 +478,6 @@ footer{
     font-family: 'Urbanist', sans-serif;
     font-size: 14px;
     line-height: 20px;
-    
 }
 .txt a:link, .txt a:visited, .txt a:active{ 
     color:#3BC8E7;
@@ -549,8 +551,9 @@ footer{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 300px;
+    max-width: 550px;
 }
+#ctrlAudio button{ margin:10px; }
 .play-icon{
     background-color: #3BC8E7;
     border-radius: 50%;
@@ -568,8 +571,6 @@ footer{
     transform: scaleX(-1);
 }
 
-
-
 @media (max-width: 1250px) { 
     #blockBanner{
         width: 85%;
@@ -585,10 +586,49 @@ footer{
         width: 200px;
         margin:0px 15px 0px 0px;
     }
+    #player{ justify-content: space-around; }
 }
 
 @media (max-width: 768px) { 
-    .tops { padding: 24px; }
-    .tops h2{ font-size:14px; }
+    #tops { padding: 24px; }
+    #tops h2{ font-size:14px; }
+    #playlist h2{ font-size:14px; }
     .trackInfos { font-size:12px; }
+    #discover div{ left: 64px; }
+    footer {flex-direction: column; }
+    #col1, #col2, #col3 { width:100%; }
+}
+
+@media (max-width: 414px) { 
+    #search, #name, #player{ display:none;}
+    #login{ width:50px; }
+    #blockBanner{ 
+        top:0px;
+        padding:24px;
+        width: 100%;
+    }
+    /* #titleBlockBanner{ } */
+    #txtBlockBanner{ 
+        font-size: 12px;
+        line-height: 16px;
+        padding:12px 0px;
+    }
+    #btBlockBanner{ padding:0px; }
+    #btBlockBanner button { width:auto;}
+    #genre h2 { padding: 24px 24px; }
+    #playlist h2 { padding: 24px 24px; }
+    #radio h2 { padding: 24px 24px; }
+    #tops{ flex-direction: column; }
+    #topTracks, #topAlbums { width:100%; }
+    #discover { height: 200px; }
+    #discover div{
+        align-items: center;
+        left: 36px;
+        padding: 0 12px;
+    }
+    #discover div h2{font-size: 14px; }
+    .wrpSlider { padding-left:24px; }
+    footer{ padding:24px; margin-bottom: 0;}
+    #col1, #col2, #col3 {padding-right:0; }
+    
 }

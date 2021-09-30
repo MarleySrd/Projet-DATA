@@ -40,6 +40,7 @@
             </article>
 
             <article id="radio">
+                <h2><span class="blue">Revivez</span> vos émissions de radio préférées</h2>
                 <div class="slider">
                     <div class="wrpSlider" id="wrpDescription">
                     
