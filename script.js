@@ -68,8 +68,6 @@ dataApiTracks
 
 
 function createLine(nbr, urlThumb, titleTrack, artistName, duration) {
-
-  
   let list = '<div class="wrapperLine">';
   list += ' <div class="lineTop">';
   list += '   <div class="leftLine">';
