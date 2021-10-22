@@ -1,72 +1,62 @@
-window.addEventListener('load', (event) => {
-  console.log('js work !');
+/////////////////////////////////////////////////////
+/// Listes Top Tracks                             ///
+/////////////////////////////////////////////////////
+DZ.api('/chart/tracks', function (responseTenTracks) {
+  jsonResponse = responseTenTracks.tracks;
+  let response = jsonResponse.data;
+  makeListTracks(response);
 });
 
-// Listes Top Albums
-const dataApiAlbums = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums");
-dataApiAlbums
-  .then(async (responseData) => {
-    console.log(responseData);
+function makeListTracks(response){
+  response.forEach(element => {
+    let position = addZero(element.position);
+    let urlThumb = element.album.cover_small;
+    let artistName = element.artist.name;
+    let titleTrack = element.title;
+    let duration = new Date((element.duration) * 1000);
+    let min = duration.getMinutes();
+    let sec = duration.getSeconds();
+    let timer = addZero(min) + ':' + addZero(sec);
 
-    const response = await responseData.json();
+    let line = createLine(position, urlThumb, titleTrack, artistName, timer);
+    addLineToListTopTracks(line);
+  });
+}
 
-    console.log(response);
-    try {
-      for (let i = 0; i < 10; i++) {
-        let position = addZero(response.data[i].position);
-        let urlThumb = response.data[i].cover_small;
-        let artistName = response.data[i].artist.name;
-        let titleTrack = response.data[i].title;
-        let duration = '';
-        let line = createLine(position, urlThumb, titleTrack, artistName, duration);
-        addLineToListTopAlbums(line);
+function addLineToListTopTracks(line){
+  let listTracks = document.getElementById('listTracks');
+  listTracks.innerHTML += line;
+}
 
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  })
+/////////////////////////////////////////////////////
+/// Listes Top Albums                             ///
+/////////////////////////////////////////////////////
+DZ.api('/chart/albums', function (responseTenAlbums) {
+  jsonResponse = responseTenAlbums.albums;
+  let response = jsonResponse.data;
+  makeListAlbums(response);
+});
 
-  .catch((err) => {
-    console.log(err)
-  })
+function makeListAlbums(response){
+  response.forEach(element => {
+    let position = addZero(element.position);
+    let urlThumb = element.cover_small;
+    let artistName = element.artist.name;
+    let titleTrack = element.title;
+    let duration = '';
+    let line = createLine(position, urlThumb, titleTrack, artistName, duration);
+    addLineToListTopAlbums(line);
 
-// Listes Top Traks
-const dataApiTracks = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks");
+  });
+}
 
-dataApiTracks
-  .then(async (responseData) => {
-    console.log(responseData);
-
-    const response = await responseData.json();
-
-    console.log(response);
-    try {
-      for (let i = 0; i < 10; i++) {
-
-        let position = addZero(response.data[i].position);
-        let urlThumb = response.data[i].artist.picture_small;
-        let artistName = response.data[i].artist.name;
-        let titleTrack = response.data[i].title;
-        let duration = new Date((response.data[i].duration) * 1000);
-        let min = duration.getMinutes();
-        let sec = duration.getSeconds();
-        let timer = addZero(min) + ':' + addZero(sec);
-
-        let line = createLine(position, urlThumb, titleTrack, artistName, timer);
-        addLineToListTopTracks(line);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-
-  })
-
-  .catch((err) => {
-    console.log(err)
-  })
+function addLineToListTopAlbums(line){
+  let listAlbums = document.getElementById('listAlbums');
+  listAlbums.innerHTML += line;
+}
 
 
+///////////////////////////////////////////////////////////////////////////// Create line of top list
 function createLine(nbr, urlThumb, titleTrack, artistName, duration) {
   let list = '<div class="wrapperLine">';
   list += ' <div class="lineTop">';
@@ -81,44 +71,120 @@ function createLine(nbr, urlThumb, titleTrack, artistName, duration) {
   list += '   <div class="timer">'+duration+'</div>';
   list += ' </div>';
   list += ' <div class="bkgLineTop"></div>';
-  list += '</div>';
-  
+  list += '</div>';  
 
   return list;
 }
 
-
-// Slider Genre
-const dataApiGenre = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/genre");
-
-dataApiGenre
-  .then(async (responseData) => {
-    console.log(responseData);
-
-    const response = await responseData.json();
-    console.log(response);
-    try {
-      for (let i = 1; i < response.data.length; i++) {
-        let urlImg = response.data[i].picture;
-        let genreName = response.data[i].name;
-        let slide = createSlide(urlImg, genreName);
-        addSLideToListGenre(slide);
-      }
-
-    } catch (err) {
-      console.log(err);
-    }
-  })
-
-  .catch((err) => {
-    console.log(err)
-  })
-
-
+/////////////////////////////////////////////////////
+/// Slider Genre                                  ///
+/////////////////////////////////////////////////////
+DZ.api('/genre', function (responseGenre) {
+  responseGenre.data.forEach(element => {
+    let urlImg = element.picture;
+    let genreName = element.name;
+    let slide = createSlide(urlImg, genreName);
+    addSLideToListGenre(slide);
+  });
+});
 
 function addSLideToListGenre(slide) {
   let listGenre = document.getElementById('wrpGenre');
   listGenre.innerHTML += slide;
+}
+
+/////////////////////////////////////////////////////
+/// banner artist                                 ///
+/////////////////////////////////////////////////////
+DZ.api('/chart/artists', function (responseArtists) {
+  let artistData = responseArtists.artists.data[0];
+  const urlBackground = artistData.picture_xl;
+  const urlName = artistData.name.toUpperCase();
+  
+  let discover = document.querySelector('#discover div')
+  document.getElementById('discover').style.cssText = "background-image: url('" + urlBackground + "');";
+  discover.innerHTML = '<button class="play-icon"><img src="img/iconPlay.svg" alt="bouton jouer"></button>';
+  discover.innerHTML += "<h2>Découvrez l'artiste du moment <br/>" + urlName + "</h2>";
+});
+
+/////////////////////////////////////////////////////
+/// slider playlist                               ///
+/////////////////////////////////////////////////////
+DZ.api('/chart/playlists', function (responsePlaylist) {
+      //console.log(responsePlaylist.playlists);
+      responsePlaylist.playlists.data.forEach(element => {
+      let UrlImage = element.picture;
+      let UrlTitle = element.title;
+      let slideplaylist = createSlide(UrlImage, UrlTitle);
+      addSLideToListPlaylist(slideplaylist);
+      // console.log(element);
+  });
+});
+
+
+function addSLideToListPlaylist(slide){
+  let listPlaylist =  document.getElementById('wrpPlaylist');
+  listPlaylist.innerHTML += slide;
+}
+
+/////////////////////////////////////////////////////
+/// slider podcast radio                          ///
+/////////////////////////////////////////////////////
+DZ.api('/chart/0/podcasts', function (responsePoadcast) {
+
+  responsePoadcast.data.forEach(element => {
+    console.log(element);
+    let imgUrl = element.picture;
+    let description = element.description;
+    let slidePodcast = createSlidePodcast(imgUrl, description);
+    addSLideToListPodcast(slidePodcast);
+  });
+});
+
+
+function createSlidePodcast(urlthumbPodcast, namePodcast) {
+  let slide = '<div class="radioSlide">';
+  slide += '<div class="thumbRadio"><img src="' + urlthumbPodcast + '" alt="radio"></div>';
+  slide += '<div class="overlay">';
+  slide += '<div class="description">' + namePodcast + '</div>';
+  slide += '</div>'
+  slide += '</div>';
+
+  return slide;
+
+}
+
+function addSLideToListPodcast(slide) {
+  let listPodcast = document.getElementById('wrpDescription');
+  listPodcast.innerHTML += slide;
+}
+
+/// UTILITAIRES
+function createLine(nbr, urlThumb, titleTrack, artistName, duration) {
+  let list = '<div class="wrapperLine">';
+  list += ' <div class="lineTop">';
+  list += '   <div class="leftLine">';
+  list += '    <div class="nbr">'+nbr+'</div>';
+  list += '    <div class="thumbAlbumTopTracks"><img src="'+urlThumb+'" alt="thumb Album"></div>';
+  list += '     <div class="trackInfos">';
+  list += '        <div class="TitleTrack">'+titleTrack+'</div>';
+  list += '        <div class="artistName blue">'+artistName+'</div>';
+  list += '     </div>';
+  list += '   </div>';
+  list += '   <div class="timer">'+duration+'</div>';
+  list += ' </div>';
+  list += ' <div class="bkgLineTop"></div>';
+  list += '</div>';  
+
+  return list;
+}
+
+function createSlide(urlthumb, nameGenre){
+  let slide = '<div class="slide">';
+  slide += '<div class="thumb"><img src="'+urlthumb+'" alt="album"></div>';
+  slide += '<div class="name">'+nameGenre+'</div>';
+  slide += '</div>';
+  return slide;
 }
 
 function addZero(i) {
@@ -128,110 +194,16 @@ function addZero(i) {
   return i;
 }
 
-  //banner artist
-  const dataApiArtist = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/artists");
-  
-  dataApiArtist
-    .then(async (responseData) => {
-      console.log(responseData);
-  
-      const response = await responseData.json();
-      console.log(response);
-      try {
-        const urlBackground = response.data[0].picture_xl;
-        const urlName = response.data[0].name.toUpperCase();
-        console.log(urlBackground);
-        console.log(urlName);
-        
-        let discover = document.querySelector('#discover div')
-        document.getElementById('discover').style.cssText = "background-image: url('" + urlBackground + "');";
-        discover.innerHTML = '<button class="play-icon"><img src="img/iconPlay.svg" alt="bouton jouer"></button>';
-        discover.innerHTML += "<h2>Découvrez l'artiste du moment <br/>" + urlName + "</h2>";
-  
-      } catch (err) {
-        console.log(err);
-      }
-     })
-  
-     .catch((err) => {
-      console.log(err)
-     })
-  
-// slider playlist
-const dataApiPlaylist = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/playlists");
 
-
-dataApiPlaylist
-  .then(async (responseData) => {
-    console.log(responseData);
-
-    const response = await responseData.json();
-    console.log(response);
-
-    try {
-      for (let i = 0; i < response.data.length; i++) {
-        let UrlImage = response.data[i].picture;
-        let UrlTitle = response.data[i].title;
-        let slideplaylist = createSlide(UrlImage, UrlTitle);
-        addSLideToListPlaylist(slideplaylist);
-
-      }
-    }catch (err) {
-        console.log(err);
-      }
-})
-.catch((err) => {
-  console.log(err)
-})
-
-
-function addLineToListTopAlbums(line){
-  let listAlbums = document.getElementById('listAlbums');
-
-  listAlbums.innerHTML += line;
-}
-function addLineToListTopTracks(line){
-  let listTracks = document.getElementById('listTracks');
-
-  listTracks.innerHTML += line;
-}
-
-
-  function createSlide(urlthumb, nameGenre){
-    let slide = '<div class="slide">';
-    slide += '<div class="thumb"><img src="'+urlthumb+'" alt="album"></div>';
-    slide += '<div class="name">'+nameGenre+'</div>';
-    slide += '</div>';
-    return slide;
-}
-
-
-function addSLideToListPlaylist(slide){
-  let listPlaylist =  document.getElementById('wrpPlaylist');
-  listPlaylist.innerHTML += slide;
-}
-
-function addLineToListTopAlbums(line) {
-  let listAlbums = document.getElementById('listAlbums');
-
-  listAlbums.innerHTML += line;
-}
-function addLineToListTopTracks(line) {
-  let listTracks = document.getElementById('listTracks');
-
-  listTracks.innerHTML += line;
-}
-
-
-
-//// SLIDER JS
+/////////////////////////////////////////////////////
+/// SLIDER JS                                     ///
+/////////////////////////////////////////////////////
 const sliderGenre = document.querySelector('#wrpGenre');
 const sliderPlaylist = document.querySelector('#wrpPlaylist');
 const sliderPodcast = document.querySelector('#wrpDescription');
 slide(sliderGenre);
 slide(sliderPlaylist);
 slide(sliderPodcast);
-
 
 function slide(el) {
   let isDown = false;
@@ -261,75 +233,24 @@ function slide(el) {
   });
 }
 
-
-// slider.addEventListener('mousedown', (e) => {
-//   isDown = true;
-//   slider.style.cursor = "grabbing";
-//   slider.classList.add('active');
-//   startX = e.pageX - slider.offsetLeft;
-//   scrollLeft = slider.scrollLeft;
-// });
-
-// // slider.addEventListener('mouseleave', () => {
-// //   isDown = false;
-// //   slider.classList.remove('active');
-// // });
-
-// slider.addEventListener('mouseup', () => {
-//   isDown = false;
-//   slider.style.cursor = "grab";
-//   slider.classList.remove('active');
-// });
-// slider.addEventListener('mousemove', (e) => {
-//   if(!isDown) return;
-//   e.preventDefault();
-//   const x = e.pageX - slider.offsetLeft;
-//   const walk = (x - startX) * 1;
-//   slider.scrollLeft = scrollLeft - walk;
-//   //console.log(walk);
-// });
-
-
-/////// Slider Podcast
-
-const dataApiPodcast = fetch("https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/podcasts");
-
-dataApiPodcast
-  .then(async (responseData) => {
-    console.log(responseData);
-
-    const response = await responseData.json();
-    console.log(response);
-    try {
-      for (let i = 1; i < response.data.length; i++) {
-        let imgUrl = response.data[i].picture;
-        let description = response.data[i].description;
-        let slidePodcast = createSlidePodcast(imgUrl, description);
-        addSLideToListPodcast(slidePodcast);
-      }
-
-    } catch (err) {
-      console.log(err);
-    }
-  })
-
-  .catch((err) => {
-    console.log(err)
-  })
-
-function createSlidePodcast(urlthumbPodcast, namePodcast) {
-  let slide = '<div class="radioSlide">';
-  slide += '<div class="thumbRadio"><img src="' + urlthumbPodcast + '" alt="radio"></div>';
-  slide += '<div class="overlay">';
-  slide += '<div class="description">' + namePodcast + '</div>';
-  slide += '</div>'
+/// create slide
+function createSlide(urlthumb, nameGenre){
+  let slide = '<div class="slide">';
+  slide += '<div class="thumb"><img src="'+urlthumb+'" alt="album"></div>';
+  slide += '<div class="name">'+nameGenre+'</div>';
   slide += '</div>';
-
   return slide;
-
 }
 
-function addSLideToListPodcast(slide) {
-  let listPodcast = document.getElementById('wrpDescription');
-  listPodcast.innerHTML += slide;
+/////////////////////////////////////////////////////
+/// UTILITAIRES                                   ///
+/////////////////////////////////////////////////////
+
+
+/// format 00 number
+function addZero(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
 }
